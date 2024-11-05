@@ -24,3 +24,7 @@ export class UserProfile {
     @Column({ default: true })
     state: boolean
 }
+
+
+
+
