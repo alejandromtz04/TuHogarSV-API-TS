@@ -1,4 +1,5 @@
-import { Column, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "src/user/entities/user.entity";
+import { Column, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 export class UserContact {
 
@@ -13,6 +14,9 @@ export class UserContact {
 
     @Column()
     address: string;
+
+    @OneToOne(() => User, (user) => user.userContact)
+    user: User;
 
     @Column({ default : true })
     state: boolean

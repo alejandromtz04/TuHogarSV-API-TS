@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { UserContact } from "src/user-contact/entities/user-contact.entity";
+import { UserProfile } from "src/user-profile/entities/user-profile.entity";
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne } from "typeorm";
 
 @Entity()
 export class User {
@@ -20,6 +22,12 @@ export class User {
 
     @Column()
     password: string;
+
+    @OneToOne(() => UserContact, (userContact) => userContact.user)
+    userContact: UserContact;
+
+    @OneToOne(() => UserProfile, (userProfile) => userProfile.user)
+    userProfile: UserProfile;
 
     @Column({ default : true })
     state: boolean
