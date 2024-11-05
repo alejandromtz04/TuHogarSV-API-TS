@@ -16,12 +16,21 @@ const user_profile_module_1 = require("./user-profile/user-profile.module");
 const properties_module_1 = require("./properties/properties.module");
 const contract_type_module_1 = require("./contract-type/contract-type.module");
 const properties_type_module_1 = require("./properties-type/properties-type.module");
+const config_1 = require("@nestjs/config");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [user_module_1.UserModule, user_contact_module_1.UserContactModule, user_profile_module_1.UserProfileModule, properties_module_1.PropertiesModule, contract_type_module_1.ContractTypeModule, properties_type_module_1.PropertiesTypeModule],
+        imports: [
+            config_1.ConfigModule.forRoot(),
+            user_module_1.UserModule,
+            user_contact_module_1.UserContactModule,
+            user_profile_module_1.UserProfileModule,
+            properties_module_1.PropertiesModule,
+            contract_type_module_1.ContractTypeModule,
+            properties_type_module_1.PropertiesTypeModule
+        ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

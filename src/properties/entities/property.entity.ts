@@ -1,4 +1,5 @@
 import { ContractType } from "src/contract-type/entities/contract-type.entity";
+import { PropertiesType } from "src/properties-type/entities/properties-type.entity";
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne } from "typeorm";
 
 @Entity()
@@ -22,7 +23,8 @@ export class Property {
     @OneToOne(() => ContractType, (contractType) => contractType.property)
     contractType: ContractType;
 
-    // propertieType
+    @OneToOne(() => PropertiesType, (propertiesType) => propertiesType.properties)
+    propertiesType: PropertiesType
 
     // ContactHour
 

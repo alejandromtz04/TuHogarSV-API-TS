@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Property = void 0;
 const contract_type_entity_1 = require("../../contract-type/entities/contract-type.entity");
+const properties_type_entity_1 = require("../../properties-type/entities/properties-type.entity");
 const typeorm_1 = require("typeorm");
 let Property = class Property {
 };
@@ -39,6 +40,10 @@ __decorate([
     (0, typeorm_1.OneToOne)(() => contract_type_entity_1.ContractType, (contractType) => contractType.property),
     __metadata("design:type", contract_type_entity_1.ContractType)
 ], Property.prototype, "contractType", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => properties_type_entity_1.PropertiesType, (propertiesType) => propertiesType.properties),
+    __metadata("design:type", properties_type_entity_1.PropertiesType)
+], Property.prototype, "propertiesType", void 0);
 __decorate([
     (0, typeorm_1.Column)({ default: true }),
     __metadata("design:type", Boolean)
