@@ -1,6 +1,9 @@
+import { ContactHour } from "src/contact-hour/entities/contact-hour.entity";
 import { ContractType } from "src/contract-type/entities/contract-type.entity";
 import { PropertiesType } from "src/properties-type/entities/properties-type.entity";
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne } from "typeorm";
+import { PropertyImg } from "src/property-img/entities/property-img.entity";
+import { UserProfile } from "src/user-profile/entities/user-profile.entity";
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, ManyToOne, OneToMany } from "typeorm";
 
 @Entity()
 export class Property {
@@ -12,7 +15,7 @@ export class Property {
     title: string;
 
     @Column()
-    propertieAddress: string;
+    address: string;
 
     @Column()
     price: number;
@@ -26,9 +29,14 @@ export class Property {
     @OneToOne(() => PropertiesType, (propertiesType) => propertiesType.properties)
     propertiesType: PropertiesType
 
-    // ContactHour
+    @OneToOne( () => ContactHour, (contactHour) => contactHour.property)
+    contactHour: ContactHour;
 
-    // propertieImg
+    @OneToMany( () => PropertyImg, (propertyImg) => propertyImg.property)
+    propertyImg: PropertyImg;
+
+    @ManyToOne( () => UserProfile, (userProfile) => userProfile.property)
+    userProfile: UserProfile;
 
     @Column({ default : true })
     state: boolean

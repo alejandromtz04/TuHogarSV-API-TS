@@ -9,6 +9,8 @@ import { ContractTypeModule } from './contract-type/contract-type.module';
 import { PropertiesTypeModule } from './properties-type/properties-type.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ContactHourModule } from './contact-hour/contact-hour.module';
+import { PropertyImgModule } from './property-img/property-img.module';
 
 @Module({
   imports: [
@@ -29,7 +31,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     UserProfileModule,
     PropertiesModule,
     ContractTypeModule,
-    PropertiesTypeModule
+    PropertiesTypeModule,
+    ContactHourModule,
+    PropertyImgModule
   ],
   controllers: [AppController],
   providers: [AppService],

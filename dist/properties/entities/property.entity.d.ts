@@ -3,7 +3,7 @@ import { PropertiesType } from "src/properties-type/entities/properties-type.ent
 export declare class Property {
     id: number;
     title: string;
-    propertieAddress: string;
+    address: string;
     price: number;
     description: string;
     contractType: ContractType;

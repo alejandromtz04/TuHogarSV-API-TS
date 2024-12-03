@@ -17,6 +17,7 @@ const properties_module_1 = require("./properties/properties.module");
 const contract_type_module_1 = require("./contract-type/contract-type.module");
 const properties_type_module_1 = require("./properties-type/properties-type.module");
 const config_1 = require("@nestjs/config");
+const typeorm_1 = require("@nestjs/typeorm");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -24,6 +25,16 @@ exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             config_1.ConfigModule.forRoot(),
+            typeorm_1.TypeOrmModule.forRoot({
+                type: 'postgres',
+                host: process.env.DB_HOST,
+                port: +process.env.DB_PORT,
+                username: process.env.DB_USERNAME,
+                password: process.env.DB_PASSWORD,
+                database: process.env.DB_DATABASE,
+                synchronize: true,
+                entities: [__dirname + "/**/*.entity{.ts,.js}"]
+            }),
             user_module_1.UserModule,
             user_contact_module_1.UserContactModule,
             user_profile_module_1.UserProfileModule,
